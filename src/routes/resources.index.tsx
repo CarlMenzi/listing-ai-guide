@@ -42,7 +42,7 @@ function ResourcesPage() {
   const navigate = Route.useNavigate();
 
   const set = (patch: Record<string, string>) =>
-    navigate({ search: (prev) => ({ ...prev, ...patch }) });
+    navigate({ search: (prev: Record<string, string>) => ({ ...prev, ...patch }) });
 
   const results = useMemo(() => filterResources(resources, search), [search]);
 

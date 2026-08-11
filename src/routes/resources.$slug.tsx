@@ -1,6 +1,7 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { ArrowLeft, ArrowRight, Download, ExternalLink } from "lucide-react";
 import { resources, getResourceBySlug } from "@/data/resources";
+import type { Resource } from "@/data/types";
 import { toolByName } from "@/data/tools";
 import { getRelated } from "@/lib/resource-utils";
 import { LevelBadge, MetaBadge } from "@/components/site/Badges";
@@ -51,7 +52,7 @@ function ResourceNotFound() {
 }
 
 function ResourceDetail() {
-  const { resource } = Route.useLoaderData();
+  const { resource } = Route.useLoaderData() as { resource: Resource };
   const related = getRelated(resources, resource, 3);
 
   return (
