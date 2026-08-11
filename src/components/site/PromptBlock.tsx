@@ -67,7 +67,7 @@ export function PromptBlock({
   content,
 }: {
   title: string;
-  description?: string;
+  description?: string | undefined;
   content: string;
 }) {
   return (
