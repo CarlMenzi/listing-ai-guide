@@ -60,14 +60,14 @@ function Home() {
   const beginners = resources
     .filter((r) => r.category === "AI Basics" || r.slug === "generate-content-ideas")
     .slice(0, 3);
-  const featured = resources.find((r) => r.featured) ?? resources[0];
+  const featured = resources.find((r) => r.featured) ?? resources[0]!;
   const latest = [...resources]
     .sort((a, b) => b.createdAt.localeCompare(a.createdAt))
     .slice(0, 5);
   const quickPrompts = resources
     .filter((r) => r.prompts.length)
     .slice(0, 4)
-    .map((r) => ({ resource: r, prompt: r.prompts[0] }));
+    .map((r) => ({ resource: r, prompt: r.prompts[0]! }));
 
   const filtersActive =
     q !== "" || category !== "all" || level !== "all" || tool !== "all";
